@@ -22,23 +22,23 @@ class Programa:
     def titulo(self, novo_titulo):
         self._titulo = novo_titulo.title()
 
-    def imprime(self):
-        print(f'{self._titulo} - {self.ano} - {self._likes}')
+    def __str__(self):
+        return f'{self._titulo} - {self.ano} - {self._likes}'
 
 class Filme(Programa):
     def __init__(self, titulo, ano, duracao):
         super().__init__(titulo, ano)
         self.duracao = duracao
-    def imprime(self):
-        print(f'{self.titulo} - {self.ano} - {self.duracao} min - {self.likes} Likes')
+    def __str__(self):
+        return f'{self.titulo} - {self.ano} - {self.duracao} min - {self.likes} Likes'
 
 class Serie(Programa):
     def __init__(self, titulo, ano, temporadas):
         super().__init__(titulo, ano)
         self.temporadas = temporadas
 
-    def imprime(self):
-        print(f'{self.titulo} - {self.ano} - {self.temporadas} Temporadas - {self.likes} Likes')
+    def __str__(self):
+        return f'{self.titulo} - {self.ano} - {self.temporadas} Temporadas - {self.likes} Likes'
 
 
 
@@ -53,4 +53,4 @@ atlanta.dar_likes()
 filmes_e_series = [vingadores, atlanta]
 
 for programa in filmes_e_series:
-    programa.imprime()
+    print(programa)
